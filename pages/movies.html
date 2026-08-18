@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../styles/global.css">
-
+    <link rel="stylesheet" href="../styles/movies.css">
 </head>
 
 <body>
@@ -15,14 +15,42 @@
     <nav-movie page="movies"></nav-movie>
 
     <main class="page-container">
-        <section class="flex s">
-            <h1 class="page-header-text d-inline-block">Explore Movies</h1>
-            <div class="d-inline-block">
-                <div>sorted by</div>
+        <section class="explore-movies-section container-fluid px-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-3">
+                <h1 class="fw-bold mb-0 text-white">Explore Movies</h1>
+
+                <div class="d-flex align-items-center gap-2">
+                    <select class="form-select sort-select rounded-3 px-3 pe-5" style="width: auto;">
+                        <option selected>Sort by: Popularity</option>
+                        <option value="1">Sort by: Rating</option>
+                        <option value="2">Sort by: Release Date</option>
+                        <option value="3">Sort by: Title</option>
+                    </select>
+
+                    <div class="view-toggle d-flex align-items-center">
+                        <button class="btn btn-sm active rounded-2" type="button" aria-label="Grid View">
+                            <i class="bi bi-grid-3x3-gap-fill"></i>
+                        </button>
+                        <button class="btn btn-sm rounded-2" type="button" aria-label="List View">
+                            <i class="bi bi-list-task"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-genre btn-red-active rounded-pill px-3 py-2">All Genres</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Action</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Comedy</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Drama</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Horror</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Sci-Fi</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Thriller</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Romance</button>
+                <button type="button" class="btn btn-genre rounded-pill px-3 py-2">Fantasy</button>
             </div>
         </section>
         <section>
-
             <movie-grid></movie-grid>
 
         </section>

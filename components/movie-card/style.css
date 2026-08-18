@@ -1,0 +1,30 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
+.poster-img {
+    height: 320px;
+    object-fit: cover;
+    width: 100%;
+    height: 360px;
+}
+
+.overview-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.bg-card{
+    background-color: #14141b;
+}
+
+.movie-card{
+    width: 256px;
+    height: 462px;
+    border-radius: 12px;
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.706);
+}
