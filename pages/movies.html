@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/global.css">
+
+</head>
+
+<body>
+
+    <nav-movie page="movies"></nav-movie>
+
+    <main class="page-container">
+        <section class="flex s">
+            <h1 class="page-header-text d-inline-block">Explore Movies</h1>
+            <div class="d-inline-block">
+                <div>sorted by</div>
+            </div>
+        </section>
+        <section>
+
+            <movie-grid></movie-grid>
+
+        </section>
+    </main>
+
+    <script type="module" src="../components/navbar/script.js">    </script>
+    <script type="module" src="../components/movie-card/script.js"></script>
+    <script type="module" src="../components/movie-grid/script.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <movie-footer></movie-footer>
+</body>
+
+</html>

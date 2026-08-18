@@ -1,0 +1,55 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<template>
+
+  <nav class="navbar navbar-dark bg-cinemax py-2">
+    <div class="container-fluid page-container d-flex align-items-center justify-content-between flex-nowrap">
+
+      <!-- 1. Logo Group -->
+      <a class="navbar-brand d-inline-flex align-items-center gap-2 m-0" href="#">
+        <img src="../../asset/logo-badge.svg" alt="CineMax Logo">
+        <div class="text-white fw-bold fs-4 font-outfit">
+          CINE<span class="max-color">MAX</span>
+        </div>
+      </a>
+
+      <!-- 2. Pages Group (Always Visible) -->
+      <ul class="navbar-nav flex-row gap-2 gap-sm-3 gap-md-4 gap-lg-5 mx-auto mb-0">
+        <li class="nav-item">
+          <a class="nav-link" data-page="home" href="../../index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="movies" href="../../pages/movies.html">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="tv-shows" href="#">TV Shows</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-page="favorites" href="#">Favorites</a>
+        </li>
+      </ul>
+
+      <!-- 3. Search Bar Group -->
+      <div class="search-box position-relative">
+        <!-- Icon Button for Small Devices -->
+        <button class="btn btn-link text-white p-2 d-md-none border-0 search-toggle-btn" type="button">
+          <i class="bi bi-search fs-5"></i>
+        </button>
+
+        <!-- Expandable Search Input -->
+        <div class="search-input-wrapper">
+          <input type="search" class="form-control form-control-sm search-input bg-dark text-white border-secondary"
+            placeholder="Search..." aria-label="Search">
+          <i class="bi bi-search search-icon text-white-50 d-none d-md-block"></i>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+</template>

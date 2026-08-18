@@ -1,0 +1,19 @@
+.bg-cinemax {
+    background-color: #0b0b0f;
+}
+
+body {
+    background-color: #0b0b0f;
+}
+
+.page-container {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.page-header-text {
+    font-size: 32px;
+    font-family: "Geist", sans-serif;
+    font-weight: 600;
+    color: white;
+}
