@@ -1,10 +1,12 @@
 import Component from "../component.js";
+import { MovieService } from "../../script/MovieService.js";
 
 class NavMovie extends Component {
 
     constructor() {
         super();
         this.scriptUrl = import.meta.url;
+        this.movieService = new MovieService();
     }
 
     /**
@@ -82,12 +84,18 @@ class NavMovie extends Component {
 
         if (userJson) {
             try {
+                const isRoot =
+                    window.location.pathname === "/" ||
+                    window.location.pathname.endsWith("/index.html");
+
+                const avatarSrc = isRoot ? "asset/profile.png" : "../asset/profile.png";
+                const profileHref = isRoot ? "pages/profile.html" : "profile.html";
 
                 authArea.innerHTML = `
-                    <a href="../../pages/profile.html" class="profile-link" title="Go to profile">
+                    <a href="${profileHref}" class="profile-link" title="Go to profile">
                         <img
                             class="profile-avatar"
-                            src="../../asset/profile.png"
+                            src="${avatarSrc}"
                             alt="Profile"
                         />
                     </a>
@@ -164,12 +172,67 @@ class NavMovie extends Component {
     }
 
     /**
-     * Listen for Enter on the search input and navigate
-     * to the movies page with a ?search= query parameter.
+     * Listen for input on the search field to display a live search dropdown,
+     * and listen for Enter to navigate to the movies page with a ?search= query parameter.
      */
     setupSearch() {
         const input = this.querySelector("#nav-search");
         if (!input) return;
+
+        const searchBox = this.querySelector(".search-box");
+        if (!searchBox) return;
+
+        let dropdown = this.querySelector(".search-dropdown-results");
+        if (!dropdown) {
+            dropdown = document.createElement("div");
+            dropdown.className = "search-dropdown-results";
+            dropdown.style.display = "none";
+            searchBox.appendChild(dropdown);
+        }
+
+        const isRoot =
+            window.location.pathname === "/" ||
+            window.location.pathname.endsWith("/index.html");
+
+        let debounceTimer = null;
+
+        input.addEventListener("input", () => {
+            clearTimeout(debounceTimer);
+            const query = input.value.trim();
+
+            if (query.length < 2) {
+                dropdown.style.display = "none";
+                dropdown.innerHTML = "";
+                return;
+            }
+
+            debounceTimer = setTimeout(async () => {
+                try {
+                    const results = await this.movieService.searchMulti(query);
+                    this.renderSearchDropdown(results, dropdown, isRoot);
+                } catch (err) {
+                    console.error("Search error:", err);
+                }
+            }, 350);
+        });
+
+        input.addEventListener("focus", () => {
+            if (dropdown.children.length > 0 && input.value.trim().length >= 2) {
+                dropdown.style.display = "block";
+            }
+        });
+
+        input.addEventListener("blur", () => {
+            setTimeout(() => {
+                dropdown.style.display = "none";
+            }, 200);
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!this.contains(e.target)) {
+                dropdown.style.display = "none";
+            }
+        });
 
         input.addEventListener("keydown", (e) => {
             if (e.key !== "Enter") return;
@@ -177,15 +240,61 @@ class NavMovie extends Component {
             const query = input.value.trim();
             if (!query) return;
 
-            const isRoot =
-                window.location.pathname === "/" ||
-                window.location.pathname.endsWith("/index.html");
+            dropdown.style.display = "none";
 
             const searchUrl = isRoot
                 ? `pages/movies.html?search=${encodeURIComponent(query)}`
                 : `movies.html?search=${encodeURIComponent(query)}`;
 
             window.location.href = searchUrl;
+        });
+    }
+
+    /**
+     * Renders search results inside the dropdown container.
+     */
+    renderSearchDropdown(results, dropdown, isRoot) {
+        if (!results || results.length === 0) {
+            dropdown.innerHTML = `<div class="search-dropdown-empty">No results found</div>`;
+            dropdown.style.display = "block";
+            return;
+        }
+
+        const fallbackPoster = isRoot ? "asset/not-fount.png" : "../asset/not-fount.png";
+        const topResults = results.slice(0, 5);
+
+        dropdown.innerHTML = topResults.map(item => {
+            const badgeLabel = item.media_type === "tv" ? "TV Show" : "Movie";
+            const detailPath = isRoot
+                ? `pages/movie-details.html?id=${item.id}`
+                : `movie-details.html?id=${item.id}`;
+
+            const posterHtml = item.poster_url
+                ? `<img src="${item.poster_url}" alt="${item.title}" class="search-item-poster" onerror="this.src='${fallbackPoster}'" />`
+                : `<div class="search-item-placeholder"><i class="bi bi-film"></i></div>`;
+
+            return `
+                <div class="search-dropdown-item" data-href="${detailPath}">
+                    ${posterHtml}
+                    <div class="search-item-info">
+                        <div class="search-item-title">${item.title}</div>
+                        <span class="search-item-badge">${badgeLabel}</span>
+                    </div>
+                </div>
+            `;
+        }).join("");
+
+        dropdown.style.display = "block";
+
+        const items = dropdown.querySelectorAll(".search-dropdown-item");
+        items.forEach(item => {
+            item.addEventListener("mousedown", (e) => {
+                e.preventDefault();
+                const href = item.getAttribute("data-href");
+                if (href) {
+                    window.location.href = href;
+                }
+            });
         });
     }
 }

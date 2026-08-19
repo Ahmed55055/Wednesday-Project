@@ -175,8 +175,3 @@ logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("currentUser");
     window.location.href = "login.html";
 });
-const updatedUser = Object.assign({}, currentUser, {
-    profileImage: base64Image
-});
-
-updateUserEverywhere(updatedUser);

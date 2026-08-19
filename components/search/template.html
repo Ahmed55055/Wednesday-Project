@@ -1,0 +1,64 @@
+<div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search movies & TV shows...">
+    <div id="searchResults" class="search-results"></div>
+</div>
+<style>
+    /* Basic styling for search component - can be expanded */
+    .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 400px; /* Adjust as needed */
+        margin: 10px 0;
+    }
+    #searchInput {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-primary); /* Use global theme */
+        border: 1px solid #555; /* Darker border */
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+        z-index: 1000;
+        max-height: 300px; /* Limit height and enable scroll */
+        overflow-y: auto;
+        visibility: hidden; /* Hidden by default, shown when results exist */
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    }
+    .search-results.visible {
+        visibility: visible;
+        opacity: 1;
+    }
+    .search-results-item {
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid #333; /* Separator */
+    }
+    .search-results-item:last-child {
+        border-bottom: none;
+    }
+    .search-results-item:hover {
+        background-color: #333; /* Hover effect */
+    }
+    .search-results-item img {
+        width: 50px; /* Small poster size */
+        height: auto;
+        object-fit: cover;
+        border-radius: 3px;
+    }
+    .search-results-item-title {
+        font-size: 0.9em;
+        color: var(--text-primary);
+    }
+</style>
