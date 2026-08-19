@@ -242,3 +242,12 @@ async function init() {
 }
 
 init();
+
+
+const navProfileImage = document.getElementById("navProfileImage");
+
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if (currentUser && currentUser.profileImage) {
+    navProfileImage.src = currentUser.profileImage;
+}
