@@ -118,25 +118,16 @@ window.addEventListener("load", function () {
 });
 
 const themeToggle = document.getElementById("themeToggle");
-const savedTheme = localStorage.getItem("theme");
+const currentTheme = document.documentElement.getAttribute("data-theme");
 
-if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-    themeToggle.textContent = "🌙";
-} else {
-    themeToggle.textContent = "☀️";
-}
+themeToggle.textContent = currentTheme === "light" ? "🌙" : "☀️";
 
 themeToggle.addEventListener("click", function () {
-    document.body.classList.toggle("light-mode");
-    const isLightMode = document.body.classList.contains("light-mode");
-
-    if (isLightMode) {
-        themeToggle.textContent = "🌙";
-        localStorage.setItem("theme", "light");
-    } else {
-        themeToggle.textContent = "☀️";
-        localStorage.setItem("theme", "dark");
-    }
+    const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+    
+    themeToggle.textContent = newTheme === "light" ? "🌙" : "☀️";
 });
 

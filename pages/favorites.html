@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineMax - Favorites</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/movies.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="../styles/theme.js"></script>
+</head>
+<body>
+    <nav-movie page="favorites"></nav-movie>
+    <main class="page-container">
+        <section class="explore-movies-section">
+            <h1 class="page-header-text">My Favorites</h1>
+            <p id="favorites-count" style="color: var(--text-secondary);"></p>
+        </section>
+        <section id="favorites-content">
+            <movie-grid id="favorites-grid"></movie-grid>
+        </section>
+        <div id="no-favorites" style="display: none; text-align: center; padding: 60px 20px;">
+            <h2 style="color: var(--text-secondary);">No favorites yet</h2>
+            <p style="color: var(--text-muted);">Start adding movies and TV shows to your favorites!</p>
+            <a href="movies.html" class="btn btn-danger mt-3">Browse Movies</a>
+        </div>
+    </main>
+    <script type="module" src="../components/navbar/script.js"></script>
+    <script type="module" src="../components/movie-card/script.js"></script>
+    <script type="module" src="../components/movie-grid/script.js"></script>
+    <script type="module" src="../script/favorites.js"></script>
+</body>
+</html>

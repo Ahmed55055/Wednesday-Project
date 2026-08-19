@@ -1,13 +1,18 @@
 <template>
     <div class="card bg-card text-white movie-card">
-        <img data-ref="poster" class="card-img-top poster-img" alt="Movie Poster">
+        <div class="poster-wrapper">
+            <img data-ref="poster" class="card-img-top poster-img" alt="Movie Poster">
+            <button data-ref="fav-btn" class="fav-btn" type="button" aria-label="Add to favorites">
+                <i data-ref="fav-icon" class="bi bi-heart"></i>
+            </button>
+        </div>
         <div class="card-body d-flex flex-column">
-            <h5 data-ref="title" class="card-title h6 fw-bold mb-1 text-truncate"></h5>
+            <h5 data-ref="title" class="card-title h6 fw-bold mb-1"></h5>
             <div class="d-flex align-items-center mb-2">
                 <span class="text-warning me-1">★</span>
                 <small data-ref="rating" class="fw-semibold text-warning-emphasis"></small>
             </div>
-            <p data-ref="overview" class="card-text small text-secondary overview-text mb-0"></p>
+            <p data-ref="overview" class="card-text small overview-text mb-0"></p>
         </div>
     </div>
 </template>

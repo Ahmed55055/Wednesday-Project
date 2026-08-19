@@ -2,27 +2,16 @@
 
 <head>
     <title>CineMax</title>
+    <script src="../styles/theme.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/login.css">
 </head>
 
 <body>
 
 
-  <nav class="navbar navbar-dark bg-cinemax py-2">
-    <div class="container-fluid page-container d-flex align-items-center justify-content-between flex-nowrap">
-
-      <!-- 1. Logo Group -->
-      <a class="navbar-brand d-inline-flex align-items-center gap-2 m-0" href="#">
-        <img src="https://raw.githubusercontent.com/Ahmed55055/Wednesday-Project/dc5a9596510b67d6854617c9201eaedc14bad6e7/asset/logo-badge.svg" alt="CineMax Logo">
-        <div class="text-white fw-bold fs-4 font-outfit">
-          CINE<span class="max-color">MAX</span>
-        </div>
-      </a>
-  </nav>
-
-
-<button id="themeToggle" class="theme-toggle" type="button">☀️</button>
+<nav-movie page="login"></nav-movie>
 
     <div class="container-fluid min-vh-100 d-flex justify-content-center align-items-center py-4">
 
@@ -107,7 +96,8 @@
 
     </div>
 
-    <script src="login.js"></script>
+    <script src="../script/login.js"></script>
+    <script type="module" src="../components/navbar/script.js"></script>
 
 </body>
 </html>

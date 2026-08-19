@@ -1,44 +1,19 @@
 <html>
 <head>
     <title>CineMax - Profile</title>
+    <script src="../styles/theme.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="profile.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-cinemax py-2">
-    <div class="container-fluid page-container d-flex align-items-center justify-content-between flex-nowrap">
-
-      <!-- 1. Logo Group -->
-      <a class="navbar-brand d-inline-flex align-items-center gap-2 m-0" href="#">
-        <img src="https://raw.githubusercontent.com/Ahmed55055/Wednesday-Project/d2db53a4925e008cc2ecc326b639b629676b7f9d/asset/logo-badge.svg" alt="CineMax Logo">
-        <div class="text-white fw-bold fs-4 font-outfit">
-          CINE<span class="max-color">MAX</span>
-        </div>
-      </a>
-
-      <!-- 2. Pages Group (Always Visible) -->
-      <ul class="navbar-nav flex-row gap-2 gap-sm-3 gap-md-4 gap-lg-5 mx-auto mb-0">
-        <li class="nav-item">
-          <a class="nav-link" data-page="home" href="home.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="movies" href="movies.html">Movies</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="tv-shows" href="#">TV Shows</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="favorites" href="#">Favorites</a>
-        </li>
-      </ul>
-
-  </nav>  
+    <nav-movie page="profile"></nav-movie>  
     <section class="profile-header">
         <div class="profile-header-container">
       
@@ -177,6 +152,6 @@
     </main>
 
     <script src="profile.js"></script>
-
+    <script type="module" src="../components/navbar/script.js"></script>
 </body>
 </html>
