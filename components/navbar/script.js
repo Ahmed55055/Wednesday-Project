@@ -82,14 +82,12 @@ class NavMovie extends Component {
 
         if (userJson) {
             try {
-                const user = JSON.parse(userJson);
-                const profileImage = user.profileImage || "";
 
                 authArea.innerHTML = `
-                    <a href="profile.html" class="profile-link" title="Go to profile">
+                    <a href="../../pages/profile.html" class="profile-link" title="Go to profile">
                         <img
                             class="profile-avatar"
-                            src="${profileImage}"
+                            src="../../asset/profile.png"
                             alt="Profile"
                         />
                     </a>
