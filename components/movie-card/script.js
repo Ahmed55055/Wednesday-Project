@@ -75,6 +75,17 @@ class MovieCard extends Component {
                     favBtn.style.display = "none";
                 }
             }
+
+            // Make card clickable to go to details
+            const cardEl = this.querySelector('.movie-card');
+            if (cardEl && movieData.id) {
+                cardEl.style.cursor = 'pointer';
+                cardEl.addEventListener('click', (e) => {
+                    // Don't navigate if clicking the favorite button
+                    if (e.target.closest('.fav-btn')) return;
+                    window.location.href = 'movie-details.html?id=' + movieData.id;
+                });
+            }
         } else {
             if (titleEl) titleEl.textContent = "Untitled";
             if (ratingEl) ratingEl.textContent = "N/A";
