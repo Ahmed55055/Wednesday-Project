@@ -199,6 +199,36 @@ export class MovieService {
     }
 
     /**
+     * Searches multi (movies, TV shows) and returns top 5 normalized results.
+     * @param query Search query
+     */
+    async searchMulti(query) {
+        try {
+            const response = await fetch(`${this.baseUrl}/search/multi?query=${encodeURIComponent(query)}`, this.getOptions());
+            if (!response.ok) {
+                throw new Error(`TMDB Request failed with status ${response.status}: ${response.statusText}`);
+            }
+            const data = await response.json();
+            if (!data.results) return [];
+
+            return data.results
+                .filter(item => item.media_type !== 'person')
+                .map(item => ({
+                    id: item.id,
+                    title: item.title || item.name || 'Untitled',
+                    poster_url: item.poster_path ? 'https://image.tmdb.org/t/p/w500' + item.poster_path : null,
+                    media_type: item.media_type || 'movie',
+                    overview: item.overview
+                }))
+                .slice(0, 5);
+        }
+        catch (error) {
+            console.error('MovieService.searchMulti Error:', error);
+            return [];
+        }
+    }
+
+    /**
      * Fetches movie details by ID.
      * @param id Movie ID
      */
