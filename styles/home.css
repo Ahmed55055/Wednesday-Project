@@ -173,10 +173,6 @@ body {
     font-size: 13px;
 }
 
-.hero-skeleton,
-.row-skeleton {
-    color: var(--text-muted);
-}
 .profile-link {
     width: 40px;
     height: 40px;
@@ -190,4 +186,8 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+.hero-skeleton,
+.row-skeleton {
+    color: var(--text-muted);
 }
