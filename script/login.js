@@ -106,7 +106,7 @@ loginForm.addEventListener("submit", function (e) {
     }
 
     alert("Login successful!");
-    window.location.href = "home.html";
+    window.location.href = "Wednesday-Project\index.html";
 });
 
 window.addEventListener("load", function () {
