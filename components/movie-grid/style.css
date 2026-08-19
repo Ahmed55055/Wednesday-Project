@@ -1,0 +1,11 @@
+/* Custom Web Components need display: block to respect flex sizing */
+
+
+/* Flex Container with Fixed 24px Gap */
+.movie-flex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: start;
+
+}

@@ -1,55 +1,63 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
 </head>
 
 <template>
-
-  <nav class="navbar navbar-dark bg-cinemax py-2">
-    <div class="container-fluid page-container d-flex align-items-center justify-content-between flex-nowrap">
-
-      <!-- 1. Logo Group -->
-      <a class="navbar-brand d-inline-flex align-items-center gap-2 m-0" href="#">
-        <img src="../../asset/logo-badge.svg" alt="CineMax Logo">
-        <div class="text-white fw-bold fs-4 font-outfit">
-          CINE<span class="max-color">MAX</span>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-cinemax py-2">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+      
+      <!-- 1. Logo -->
+      <a class="navbar-brand d-inline-flex align-items-center gap-2 m-0" href="../index.html">
+        <img id="nav-logo" src="../asset/logo-badge.svg" alt="CineMax Logo" style="height: 36px;">
+        <div class="fw-bold fs-4 font-outfit brand-text">
+          <span class="brand-cine">CINE</span><span class="brand-max">MAX</span>
         </div>
       </a>
 
-      <!-- 2. Pages Group (Always Visible) -->
-      <ul class="navbar-nav flex-row gap-2 gap-sm-3 gap-md-4 gap-lg-5 mx-auto mb-0">
-        <li class="nav-item">
-          <a class="nav-link" data-page="home" href="../../index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="movies" href="../../pages/movies.html">Movies</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="tv-shows" href="#">TV Shows</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="favorites" href="#">Favorites</a>
-        </li>
-      </ul>
+      <!-- Collapse Toggler for Mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <!-- 3. Search Bar Group -->
-      <div class="search-box position-relative">
-        <!-- Icon Button for Small Devices -->
-        <button class="btn btn-link text-white p-2 d-md-none border-0 search-toggle-btn" type="button">
-          <i class="bi bi-search fs-5"></i>
-        </button>
+      <!-- 2. Centered Nav links + Right Actions -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Centered links -->
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" data-page="home" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-page="movies" href="movies.html">Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-page="tv-shows" href="tv-shows.html">TV Shows</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-page="favorites" href="favorites.html">Favorites</a>
+          </li>
+        </ul>
 
-        <!-- Expandable Search Input -->
-        <div class="search-input-wrapper">
-          <input type="search" class="form-control form-control-sm search-input bg-dark text-white border-secondary"
-            placeholder="Search titles, people..." aria-label="Search">
-          <i class="bi bi-search search-icon text-white-50 d-none d-md-block"></i>
+        <!-- Right actions -->
+        <div class="d-flex align-items-center gap-3 navbar-actions">
+          <!-- Search box -->
+          <div class="search-box position-relative">
+            <input id="nav-search" type="search" class="form-control form-control-sm search-input" placeholder="Search movies & TV shows..." aria-label="Search">
+            <i class="bi bi-search search-icon"></i>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="btn btn-link p-2 border-0 theme-toggle-btn" type="button" aria-label="Toggle theme">
+            <i class="bi bi-sun-fill" id="theme-icon"></i>
+          </button>
+
+          <!-- Auth Area -->
+          <div id="auth-area" class="d-flex align-items-center"></div>
         </div>
       </div>
 
     </div>
   </nav>
-
 </template>

@@ -10,52 +10,7 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-     <nav class="navbar navbar-dark bg-cinemax py-2">
-    <div class="container-fluid page-container d-flex align-items-center justify-content-between flex-nowrap">
-
-      <!-- 1. Logo Group -->
-      <a class="navbar-brand d-inline-flex align-items-center gap-2 m-0" href="#">
-        <img src="https://raw.githubusercontent.com/Ahmed55055/Wednesday-Project/e7c98cf39bc3d80672846c1cd983b821b2392038/asset/logo-badge.svg" alt="CineMax Logo">
-        <div class="text-white fw-bold fs-4 font-outfit">
-          CINE<span class="max-color">MAX</span>
-        </div>
-      </a>
-
-      <!-- 2. Pages Group (Always Visible) -->
-      <ul class="navbar-nav flex-row gap-2 gap-sm-3 gap-md-4 gap-lg-5 mx-auto mb-0">
-        <li class="nav-item">
-          <a class="nav-link" data-page="home" href="home.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="movies" href="../../pages/movies.html">Movies</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="tv-shows" href="#">TV Shows</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-page="favorites" href="#">Favorites</a>
-        </li>
-      </ul>
-        <a href="profile.html" class="profile-link">
-    <img id="navProfileImage" src="https://cdn-icons-png.flaticon.com/512/9568/9568643.png" alt="Profile">
-</a>
-      <!-- 3. Search Bar Group -->
-      <div class="search-box position-relative">
-        <!-- Icon Button for Small Devices -->
-        <button class="btn btn-link text-white p-2 d-md-none border-0 search-toggle-btn" type="button">
-          <i class="bi bi-search fs-5"></i>
-        </button>
-
-        <!-- Expandable Search Input -->
-        <div class="search-input-wrapper">
-          <input type="search" class="form-control form-control-sm search-input bg-dark text-white border-secondary"
-            placeholder="Search titles, people..." aria-label="Search">
-          <i class="bi bi-search search-icon text-white-50 d-none d-md-block"></i>
-        </div>
-      </div>
-
-    </div>
-  </nav>
+<nav-movie page="home"></nav-movie>
     <section id="hero" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content" id="heroContent">
@@ -88,5 +43,6 @@
     </main>
 
     <script src="home.js"></script>
+    <script type="module" src="../components/navbar/script.js"></script>
 </body>
 </html>
