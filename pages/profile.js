@@ -16,7 +16,7 @@ const newPasswordInput = document.getElementById("newPassword");
 const saveBtn = document.getElementById("saveBtn");
 const discardBtn = document.getElementById("discardBtn");
 const logoutBtn = document.getElementById("logoutBtn");
-const DEFAULT_PROFILE_IMAGE = "https://cdn-icons-png.flaticon.com/512/9568/9568643.png";
+const DEFAULT_PROFILE_IMAGE = "https://th.bing.com/th/id/OIP.p7KrixEH76AInqJDLjj7oQAAAA?w=169&h=169&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3";
 
 function getUsers() {
     return JSON.parse(localStorage.getItem("cineMaxUsers")) || [];
