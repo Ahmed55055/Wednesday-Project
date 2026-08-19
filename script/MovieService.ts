@@ -1,5 +1,5 @@
 // --- Interfaces based on TMDB Response ---
-
+import {CONFIG} from '../config'
 export interface Movie {
     adult: boolean;
     backdrop_path: string | null;
@@ -31,7 +31,7 @@ export class MovieService {
     private readonly baseUrl = 'https://api.themoviedb.org/3';
 
     private getOptions(): RequestInit {
-        const token = process.env.TMDB_READ_ACCESS_TOKEN || '';
+        const token = CONFIG.TMDB_READ_ACCESS_TOKEN || '';
 
         return {
             method: 'GET',
@@ -62,6 +62,31 @@ export class MovieService {
             return data;
         } catch (error) {
             console.error('MovieService.getTopRated Error:', error);
+            throw error;
+        }
+    }
+
+    /**
+     * Fetches trending movies (what is "hot" right now).
+     * @param timeWindow Time frame for trending data ('day' or 'week'). Default: 'day'
+     * @param language Language code (default: 'en-US')
+     */
+    public async getTrending(timeWindow: 'day' | 'week' = 'day', language: string = 'en-US'
+    ): Promise<TmdbPaginatedResponse<Movie>> {
+        try {
+            const response = await fetch(
+                `${this.baseUrl}/trending/movie/${timeWindow}?language=${language}`,
+                this.getOptions()
+            );
+
+            if (!response.ok) {
+                throw new Error(`TMDB Request failed with status ${response.status}: ${response.statusText}`);
+            }
+
+            const data: TmdbPaginatedResponse<Movie> = await response.json();
+            return data;
+        } catch (error) {
+            console.error('MovieService.getTrending Error:', error);
             throw error;
         }
     }

@@ -4,8 +4,8 @@
 
 body {
     margin: 0;
-    background-color: #0b0b0d;
-    color: white;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: Arial, sans-serif;
 }
 
@@ -22,7 +22,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(transparent, #0b0b0d);
+    background: linear-gradient(transparent, var(--bg-primary));
 }
 
 .hero-content {
@@ -32,7 +32,7 @@ body {
 }
 
 .hero-badge {
-    background-color: #e50914;
+    background-color: var(--accent);
     color: white;
     padding: 6px 12px;
     border-radius: 5px;
@@ -46,7 +46,7 @@ body {
 }
 
 .hero-meta {
-    color: #aaa;
+    color: var(--text-secondary);
 }
 
 .hero-meta .rating {
@@ -54,7 +54,7 @@ body {
 }
 
 .hero-overview {
-    color: #ddd;
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
@@ -72,12 +72,12 @@ body {
 }
 
 .btn-hero-primary {
-    background-color: #e50914;
+    background-color: var(--accent);
     color: white;
 }
 
 .btn-hero-secondary {
-    background-color: #333;
+    background-color: var(--bg-tertiary);
     color: white;
 }
 .movies-main {
@@ -93,7 +93,7 @@ body {
 }
 
 .see-all {
-    color: #e50914;
+    color: var(--accent);
     text-decoration: none;
 }
 
@@ -104,10 +104,11 @@ body {
 }
 
 .movie-card {
-    background-color: #17171a;
+    background-color: var(--card-bg);
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
+    border: 1px solid var(--card-border);
 }
 
 .movie-card:hover {
@@ -131,7 +132,7 @@ body {
     position: absolute;
     top: 8px;
     left: 8px;
-    background-color: #111;
+    background-color: var(--bg-tertiary);
     color: #f5c518;
     padding: 5px 8px;
     border-radius: 5px;
@@ -146,13 +147,13 @@ body {
     height: 32px;
     border: none;
     border-radius: 50%;
-    background-color: #111;
+    background-color: var(--bg-tertiary);
     color: white;
     cursor: pointer;
 }
 
 .movie-favorite-btn.active {
-    color: #e50914;
+    color: var(--accent);
 }
 
 .movie-info {
@@ -168,104 +169,11 @@ body {
 }
 
 .movie-sub {
-    color: #aaa;
+    color: var(--text-muted);
     font-size: 13px;
 }
 
 .hero-skeleton,
 .row-skeleton {
-    color: #aaa;
-}
-
-/*nav*/
-/* Logo Styling */
-.navbar-brand img {
-    height: 36px;
-    width: auto;
-}
-
-.max-color {
-    color: #E50914;
-}
-
-/* Page Links Base Style */
-.navbar-nav .nav-link {
-    font-size: 0.9rem;
-    white-space: nowrap;
-    transition: color 0.2s ease-in-out;
-    font-family: "Geist", sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-}
-
-.navbar-nav .nav-link.active-page {
-    position: relative;
-    display: inline-block;
-    color: white;
-    font-weight: 600;
-}
-
-.active-page::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #e50914;
-}
-
-@media (min-width: 768px) {
-    .navbar-nav .nav-link {
-        font-size: 1rem;
-    }
-}
-
-.navbar-nav .nav-link:hover {
-    color: #ffffff !important;
-}
-
-/* Search Box Desktop vs Mobile Behavior */
-.search-input-wrapper {
-    position: relative;
-}
-
-/* Larger Screens: Full Input Bar */
-@media (min-width: 768px) {
-    .search-input {
-        padding-left: 2.2rem;
-        width: 220px;
-        border-radius: 20px;
-    }
-
-    .search-icon {
-        position: absolute;
-        left: 0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
-}
-
-/* Smaller Screens: Expandable Input Bar */
-@media (max-width: 767.98px) {
-    .search-input-wrapper {
-        display: none;
-        /* Hidden by default on mobile */
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        width: 180px;
-    }
-
-    /* Shown when active */
-    .search-box.active .search-input-wrapper {
-        display: block;
-    }
-
-    .search-box.active .search-toggle-btn {
-        display: none !important;
-    }
+    color: var(--text-muted);
 }

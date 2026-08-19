@@ -1,27 +1,45 @@
-/* Logo Styling */
+/* ---- Logo ---- */
 .navbar-brand img {
     height: 36px;
     width: auto;
 }
 
-.max-color {
-    color: #E50914;
+/* ---- Brand Text ---- */
+.brand-cine {
+    color: var(--text-primary, #ffffff);
+    transition: color 0.3s;
 }
 
-/* Page Links Base Style */
+.brand-max {
+    color: var(--accent, #E50914);
+}
+
+/* Light mode: CINE gets a different color */
+[data-theme="light"] .brand-cine {
+    color: #333333;
+}
+
+/* ---- Navbar ---- */
+.navbar.bg-cinemax {
+    background-color: var(--bg-primary) !important;
+    border-bottom: 1px solid var(--nav-border, rgba(255, 255, 255, 0.08));
+}
+
+/* ---- Page Links ---- */
 .navbar-nav .nav-link {
-    font-size: 0.9rem;
     white-space: nowrap;
     transition: color 0.2s ease-in-out;
     font-family: "Geist", sans-serif;
     font-weight: 500;
     font-size: 15px;
+    color: var(--text-secondary, #b3b3b3);
+    padding: 0.5rem 1rem;
 }
 
 .navbar-nav .nav-link.active-page {
     position: relative;
     display: inline-block;
-    color: white;
+    color: var(--text-primary, #ffffff);
     font-weight: 600;
 }
 
@@ -32,60 +50,138 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #e50914;
-}
-
-@media (min-width: 768px) {
-    .navbar-nav .nav-link {
-        font-size: 1rem;
-    }
+    background-color: var(--accent, #e50914);
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ffffff !important;
+    color: var(--text-primary, #ffffff) !important;
 }
 
-/* Search Box Desktop vs Mobile Behavior */
-.search-input-wrapper {
+/* ---- Search Box ---- */
+.search-box {
     position: relative;
 }
 
-/* Larger Screens: Full Input Bar */
-@media (min-width: 768px) {
-    .search-input {
-        padding-left: 2.2rem;
-        width: 220px;
-        border-radius: 20px;
-    }
-
-    .search-icon {
-        position: absolute;
-        left: 0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
+.search-input {
+    padding-left: 2.2rem;
+    padding-right: 0.75rem;
+    width: 200px;
+    border-radius: 20px;
+    background-color: var(--input-bg, #1c1c24);
+    border: 1px solid var(--input-border, #333);
+    color: var(--text-primary, #ffffff);
+    font-size: 0.85rem;
+    transition: width 0.3s ease, border-color 0.2s ease;
 }
 
-/* Smaller Screens: Expandable Input Bar */
-@media (max-width: 767.98px) {
-    .search-input-wrapper {
-        display: none;
-        /* Hidden by default on mobile */
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        width: 180px;
+.search-input::placeholder {
+    color: var(--text-muted, #6c6c6c);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent, #e50914);
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.15);
+    width: 260px;
+    background-color: var(--input-bg, #1c1c24);
+    color: var(--text-primary, #ffffff);
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 0.85rem;
+    color: var(--text-muted, #6c6c6c);
+}
+
+/* ---- Theme Toggle ---- */
+.theme-toggle-btn {
+    color: var(--text-primary, #ffffff) !important;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.3s ease;
+    text-decoration: none !important;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--accent, #e50914) !important;
+    transform: rotate(20deg);
+}
+
+/* ---- Join Us Button ---- */
+.join-us-btn {
+    background-color: var(--accent, #e50914);
+    border-color: var(--accent, #e50914);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.35rem 1.1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.join-us-btn:hover {
+    background-color: var(--accent-hover, #ff0f1a);
+    border-color: var(--accent-hover, #ff0f1a);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* ---- Profile Avatar ---- */
+.profile-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.profile-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid var(--accent, #e50914);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile-avatar:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.3);
+}
+
+/* ---- Navbar Toggler ---- */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.35);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
     }
 
-    /* Shown when active */
-    .search-box.active .search-input-wrapper {
-        display: block;
+    .navbar-nav {
+        gap: 0.25rem !important;
     }
 
-    .search-box.active .search-toggle-btn {
-        display: none !important;
+    .search-input {
+        width: 100%;
+    }
+
+    .search-input:focus {
+        width: 100%;
+    }
+
+    .navbar-actions {
+        padding-top: 0.5rem;
     }
 }

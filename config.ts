@@ -1,0 +1,4 @@
+// exposing the access token only because it's exercising project
+export const CONFIG = {
+    TMDB_READ_ACCESS_TOKEN: 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOGMyYzVmMzU3NDUzMDEwODAxMmFkMDEyZWU1OGRkNiIsIm5iZiI6MTc4NzA2MjY3OC4wOTEsInN1YiI6IjZhODQ2OTk2OTA1MGViYWEwZGJhZDM5MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.ESIDfahbANUqXV4ocoHVijIVCeudt8VkbdkdddKWOzo'
+};
