@@ -1,0 +1,6 @@
+footer a {
+    transition: color 0.2s ease-in-out;
+}
+footer a:hover {
+    color: #dc3545 !important;
+}
