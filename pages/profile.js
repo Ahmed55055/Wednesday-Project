@@ -160,7 +160,7 @@ saveBtn.addEventListener("click", function () {
     updateUserEverywhere(updatedUser);
     loadProfileData();
 
-    alert("تم حفظ التغييرات بنجاح!");
+    alert("Updates Saved Successfully!");
 });
 
 discardBtn.addEventListener("click", function () {
@@ -175,4 +175,8 @@ logoutBtn.addEventListener("click", function () {
     localStorage.removeItem("currentUser");
     window.location.href = "login.html";
 });
+const updatedUser = Object.assign({}, currentUser, {
+    profileImage: base64Image
+});
 
+updateUserEverywhere(updatedUser);
